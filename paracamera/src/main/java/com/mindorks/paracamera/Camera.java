@@ -9,7 +9,7 @@ import android.content.pm.ResolveInfo;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.provider.MediaStore;
-import android.support.v4.content.FileProvider;
+import androidx.core.content.FileProvider;
 import android.text.TextUtils;
 
 import java.io.File;
@@ -44,7 +44,7 @@ public class Camera {
     private Context context;
     private Activity activity;
     private Fragment fragment;
-    private android.support.v4.app.Fragment compatFragment;
+    private androidx.fragment.app.Fragment compatFragment;
     private String cameraBitmapPath = null;
     private Bitmap cameraBitmap = null;
     private String dirName;
@@ -101,7 +101,6 @@ public class Camera {
     /**
      * Initiate the existing camera apps
      *
-     * @throws NullPointerException
      */
     public void takePicture() throws NullPointerException, IllegalAccessException {
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
@@ -204,7 +203,7 @@ public class Camera {
         private Context context;
         private Activity activity;
         private Fragment fragment;
-        private android.support.v4.app.Fragment compatFragment;
+        private androidx.fragment.app.Fragment compatFragment;
         private String dirName;
         private String imageName;
         private String imageType;
@@ -302,7 +301,7 @@ public class Camera {
             return new Camera(this);
         }
 
-        public Camera build(android.support.v4.app.Fragment fragment) {
+        public Camera build(androidx.fragment.app.Fragment fragment) {
             compatFragment = fragment;
             context = fragment.getActivity().getApplicationContext();
             mode = MODE.COMPAT_FRAGMENT;
